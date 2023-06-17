@@ -38,10 +38,13 @@ To replicate the project environment, please follow the steps below:
     ```
 # Discussion about the Project
 
+We replicated the [original R code of the author](https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic) to Python using the same logic. In addition to that we propose an alternative modeling approach for the dataset.
+
 ## Findings
-The results seem fairly similar. However, the lack of any evaluation metric makes it difficult to compare our approach with original approach fully.  
-Author also did not set any random seed, making the code dependent on pseudorandom numbers generated in each session, thus making process non-reproducible.  
-Code is full of redundant code and contradictory actions. Our approach is simplified and can be reproduced.
+For the replicated model, we used a confusion matrix and accuracy to compare the original authors' and our replication results. There are some substantial differences, but 89% of our predictions are the same as the ones from the author. 
+Moreover, for feature importance, the author's top 3 most important features are (1.Title, 2.Sex and 3.Fare) while in our findings we have (1.Fare 2.Age 3.Title_Mr). The difference here can be attributed due to the fact that the title variable was used in R as factor variable, while python does not support categorical variable, therefore dummy variables were created for each category (i.e Title_Mr, Title_Miss, Title_Sir...).
+
+Furthermore, for the improved approach, the comparison might not be feasible, since the author did not do any validation of the model.
 
 ## Drawbacks and Limitations
 
@@ -65,5 +68,10 @@ However, in the original code of the author there is many unnecessary redundant 
 
 ## Conclusion
 
-Our changes were not drastic, it was only simplifying and unification of the whole procedure, adding a classification metric and setting random state in every method relying on pseudo-random numbers.  
+The results seem fairly similar. However, the lack of any evaluation metric makes it difficult to compare our approach with the original approach fully.  
+The author also did not set any random seed, making the code dependent on pseudorandom numbers generated in each session, thus making the process non-reproducible.  
+Code is full of redundant code and contradictory actions. Our approach is simplified and can be reproduced.
+Our changes were not drastic, it was only simplified and unification of the whole procedure, adding a classification metric and setting a random state in every method relying on pseudo-random numbers.  
 It was just enough to make it that **Research** truly **Reproducible**.
+
+
